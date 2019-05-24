@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="En almacenes definitivos"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Los residuos nucleares se han de depositar en almacenes en donde puedan permanecer cientos de a&ntilde;os, en instalaciones bajo tierra.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario33.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En almacenes provisionales"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="En estos almacenes solamente se les prepara para su almacenamiento definitivo en instalaciones subterr&aacute;neas.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario32.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En el fondo del mar"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Este fue el sistema utilizado hasta los a&ntilde;os 80 del siglo pasado, pero demostr&oacute; ser muy poco seguro.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario32.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En piscinas en donde se enfrian lentamente"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Estas piscinas se encuentran en las mismas centrales nucleares y se utilizan para enfriar el combustible gastado.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario32.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+16 - Residuos nucleares
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+Una vez consumidas las barras combustibles en un reactor a&uacute;n contienen muchos elementos radiactivos altamente peligrosos. Su periodo de semidesintegraci&oacute;n puede llegar hasta los millones de a&ntilde;os. Se han de guardar durante mucho tiempo.</p>
+<p>&iquest;En qu&eacute; condiciones se han de guardar los residuos nucleares?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">En almacenes provisionales</option>
+  <option value="2">En el fondo del mar</option>
+  <option value="3">En piscinas en donde se enfrian lentamente</option>
+  <option value="4">En almacenes definitivos</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario31.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

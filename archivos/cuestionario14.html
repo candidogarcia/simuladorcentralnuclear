@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Reducir la velocidad de los neutrones"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Has acertado. Para que los neutrones sean &uacute;tiles han de tener poca velocidad.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario15.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Proteger las barras de combustible"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No se trata de esto. Las varillas que contienen el combustible, ya son de un material resistente.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario14.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Impedir que aumente la temperatura"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es correcto. El control de la temperatura del reactor se consigue con las barras de control y la circulaci&oacute;n del refrigerante.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario14.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Moderar la reaccion en cadena"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es la reacci&oacute;n en cadena la que se modera, sin&oacute; la velocidad de los neutrones.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario14.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+7 - Vaso del reactor 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El vaso del reactor es un enorme recipiente de acero al carbono, o acero inoxidable, que contiene las barras de combustible, las barras de control y el l&iacute;quido refrigerante, que tambi&eacute;n act&uacute;a como moderador de neutrones. </p>
+
+<p>&iquest;Qu&eacute; funci&oacute;n tiene el material moderador?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Moderar la reaccion en cadena</option>
+  <option value="2">Proteger las barras de combustible</option>
+  <option value="3">Impedir que aumente la temperatura</option>
+  <option value="4">Reducir la velocidad de los neutrones</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario13.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

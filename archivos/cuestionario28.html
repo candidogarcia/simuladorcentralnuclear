@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="BWR, CANDU, AGR y RBMK"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Despu&eacute;s de PWR estos son los m&aacute;s utilizados. El BWR usa agua ligera. CANDU y RBMK usan grafito como moderador. El AGR usa grafito como moderador y CO2 como refrigerante.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario29.html";
+	contadores();
+	}
+
+	if (textoEscogido=="PBMR"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Es un reactor que utiliza bolas de combustible en lugar de varillas, pero que aun no est&aacute; operativo, aunque se han hecho prototipos en Sud&aacute;frica, China y Alemania.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario28.html";
+	contadores();
+	}
+
+	if (textoEscogido=="MAGNOX"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Los reactores MAGNOX tuvieron un uso experimental, para la producci&oacute;n de plutonio destinado a la fabricaci&oacute;n de bombas at&oacute;micas.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario28.html";
+	contadores();
+	}
+
+	if (textoEscogido=="EPR"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Se trata de un dise&ntilde;o franco-alem&aacute;n de tercera generaci&oacute;n. Hasta el momento se ha iniciado la construcci&oacute;n de unas pocas unidades en Finlandia, Francia y China.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario28.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+14 - Tipos de centrales nucleares
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+Los reactores nucleares m&aacute;s utilizados en todo el mundo son los "PWR", que usan el agua ligera como moderador y refrigerador, como en este simulador.
+<p>&iquest;Qu&eacute; otros tipos de reactores son habituales a comienzos del siglo XXI?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">PBMR</option>
+  <option value="2">MAGNOX</option>
+  <option value="3">EPR</option>
+  <option value="4">BWR, CANDU, AGR y RBMK</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario27.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

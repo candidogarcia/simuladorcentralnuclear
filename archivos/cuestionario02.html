@@ -1,0 +1,158 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+	var enlace = "cuestionario01.html";
+
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+    function control()
+    {
+        
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+	
+    	
+	if (textoEscogido=="Uranio y plutonio"){
+	
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Has acertado. Ciertamente se utiliza uranio enriquecido.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario03.html";
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	contadores();
+	}
+
+	if (textoEscogido=="Carbon"){
+	contador = contador + 1
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Vuelve a probar. El carb&oacute;n es un combustible mineral utilizado en centrales t&eacute;rmicas, pero no en las nucleares.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario02.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Petroleo"){
+	contador = contador + 1
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";document.getElementById("validacion").innerHTML="No has acertado. Los derivados del petr&oacute;leo mueven los coches, trenes, etc., pero no se usan en centrales nucleares.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario02.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Gas natural"){
+	contador = contador + 1
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es cierto. El gas natural se utiliza en las centrales de ciclo combinado, pero no en las nucleares.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario02.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+1 - Energ&iacute;a nuclear 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+En diciembre de 1942 se construy&oacute; el primer reactor nuclear en la Universidad de Chicago. </p>
+<p>Para conseguir producir electricidad en una central nuclear se tuvo que esperar hasta 1951, cuando se construy&oacute; el EBR-I.</p>
+<p>&#191;Cual es el combustible utilizado en un reactor nuclear?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Carbon</option>
+  <option value="2">Petroleo</option>
+  <option value="3">Uranio y plutonio</option>
+  <option value="4">Gas natural</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario01.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="cuestionario02.html" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

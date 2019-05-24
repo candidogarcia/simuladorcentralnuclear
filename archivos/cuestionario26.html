@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Haciendo que pierda calor"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Esta es la cuesti&oacute;n. Enfriando el vapor hacemos que cambie de estado. Para enfriarlo se puede utilizar agua o aire, dependiendo de si se dispone de una fuente de agua abundante, o no.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario27.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Comprimiendo el vapor"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es este el caso. Comprimiendo el vapor podr&iacute;amos transformarlo en l&iacute;quido, pero a la salida de la turbina nos interesa tener una presi&oacute;n muy baja, pues ello aumenta su rendimiento.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario26.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Separandolo del agua"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es esta la cuesti&oacute;n. Nos interesa recuperar todo el agua, tanto vapor como l&iacute;quida, para evitar tener que purificar (Extraer todas las sales) una nueva cantidad de agua, para introducir en el generador de vapor.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario26.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Calentando"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Exactamente lo contrario. Para conseguir condensar el vapor lo hemos de enfriar. Si se dispone de agua abundante mediante un condensador de superficie y, si no es as&iacute;, mediante una torre de refrigeraci&oacute;n.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario26.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+13 - Condensador 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El condensador es el elemento que se encarga de transformar en agua l&iacute;quida el vapor residual que sale de la turbina. Es muy importante volver a introducir en el generador de vapor el agua condensada a partir del vapor que sale de la turbina.
+<p>&iquest;Como se consigue condensar el vapor?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Comprimiendo el vapor</option>
+  <option value="2">Separandolo del agua</option>
+  <option value="3">Haciendo que pierda calor</option>
+  <option value="4">Calentando</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario25.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

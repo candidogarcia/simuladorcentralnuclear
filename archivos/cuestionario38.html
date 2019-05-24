@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Uraninita"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="La uraninita es un mineral radiactivo. Se trata de un &oacute;xido de uranio, siendo la principal mena de este elemento. El mineral se conoce desde el siglo XV en las minas de plata de Alemania.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario39.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Autunita"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="La autunita es un fosfato c&aacute;lcico hidratado de uranio. Es de color amarillo y raramente verde.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario38.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Carnotita"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="La carnotita es un vanadato de potasio y uranio. La carnotita es un mineral de uranio que se encuentra en forma de cortezas y copos en areniscas. ";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario38.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Torbernita"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="La torbernita es un mineral de uranio. Es un fosfato de uranio. Puede ser verde oliva o verde amarillo lima.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario38.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+19 - Minerales de uranio
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+La producci&oacute;n mundial de uranio fue en 2009 de 50.572 toneladas, de las que el 27,3% se extrajo en minas de Kazajist&aacute;n, el 20,1% en Canad&aacute;, el 15.7% en Australia, el 9,1% en Namibia, el 7,0% en Rusia, y el 6,4% en N&iacute;ger.</p>
+<p>&iquest;Cuales son los principales minerales de uranio?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Autunita</option>
+  <option value="2">Uraninita</option>
+  <option value="3">Carnotita</option>
+  <option value="4">Torbernita</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario37.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

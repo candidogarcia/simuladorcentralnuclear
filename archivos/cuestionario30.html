@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Centrifugado de hexafluoruro de uranio"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Durante el proceso de enriquecimiento se obtiene hexafluoruro de uranio que es un gas a temperatura ambiente. Este gas se introduce en unas centr&iacute;fugas para separar el U235 del U238.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario31.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Proceso de difusion termica"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="La difusi&oacute;n t&eacute;rmica permite separar los dos is&oacute;topos del uranio a trav&eacute;s de una delgada capa fluida. Durante la Segunda Guerra Mundial se utiliz&oacute; en la planta de Oak Ridge (EEUU).";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario30.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Separacion electromagnetica"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="El uranio met&aacute;lico vaporizado se separa en un espectr&oacute;metro de masas especial. Durante la Segunda Guerra Mundial tambi&eacute;n se utiliz&oacute; en EEUU.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario30.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Difusion gaseosa"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="El hexafluoruro de uranio se hace pasar a trav&eacute;s de una membrana semi-permeable. Durante la Guerra fr&iacute;a, la difusi&oacute;n gaseosa fue una t&eacute;cnica de enriquecimiento.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario30.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+15 - Enriquecimiento del combustible
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El uranio que se obtiene en las minas tiene una concentraci&oacute;n de uranio-235 del orden del 0,72%. Para poderlo utilizar en un reactor se ha de concentrar hasta que contenga un 20%.
+<p>&iquest;De qu&eacute; forma se trata, en la actualidad, el mineral para obtener uranio enriquecido?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Proceso de difusion termica</option>
+  <option value="2">Centrifugado de hexafluoruro de uranio</option>
+  <option value="3">Separacion electromagnetica</option>
+  <option value="4">Difusion gaseosa</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario29.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

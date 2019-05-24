@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="El calor producido en la fision del Uranio-235"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Eso es en realidad lo que ha de transportar la bomba del circuito primario, el agua es el medio que se utiliza para llevar el calor de un lado a otro.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario21.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Un gran caudal de agua"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Ciertamente las bombas proporcionan un gran caudal de agua, para mantener la temperatura del reactor estable, pero lo importante es el transporte de calor.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario20.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Agua a presion"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="El agua dentro del circuito primario se encuentra a una presi&oacute;n de unas 60 atm&oacute;sferas, pero lo importante es el transporte de calor.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario20.html";
+	contadores();
+	}
+
+	if (textoEscogido=="El liquido refrigerante"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Se utiliza agua como l&iacute;quido refrigerante, porque tambi&eacute;n puede hacer de moderador de neutrones, pero lo importante es el transporte de calor.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario20.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+10 - Bombas del circuito primario 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+La bomba del circuito primario hace circular el agua por el vaso del reactor y lo env&iacute;a hasta los generadores de vapor. Esta circulaci&oacute;n se hace dentro de un circuito cerrado.
+</p>
+<p>&iquest;Qu&eacute; es lo que transporta la bomba del circuito primario, desde el reactor hasta el generador de vapor?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">El calor producido en la fision del Uranio-235</option>
+  <option value="2">Un gran caudal de agua</option>
+  <option value="3">Agua a presion</option>
+  <option value="4">El liquido refrigerante</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario19.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Con una aleacion rica en zirconio"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Correcto. Se hacen de zircaloy, una aleaci&oacute;n de zirconio que soporta bien los efectos de la radiaci&oacute;n.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario11.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Aluminio anodizado"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No puede ser. El aluminio anodizado soporta la intemperie, pero no los efectos de la radiaci&oacute;n.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario10.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Cobre y laton"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es correcto. El cobre y sus aleaciones son buenos conductores del calor, pero para esto no sirven.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario10.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Acero y tungsteno"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es una buena respuesta. Estos aceros son muy resistentes al desgaste, pero no nos sirven para contener &oacute;xido de uranio.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario10.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+5 - Barras de combustible 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El &oacute;xido de uranio se prensa en pastillas de 2 cent&iacute;metros. </p>
+<p>Estas pastillas se meten en peque&ntilde;os tubos de 4 metros de largo, con los que se hacen paquetes.</p>
+<p>&iquest;Qu&eacute; metal se utiliza para fabricar los tubos en los que se ponen las pastillas de &oacute;xido de uranio?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Aluminio anodizado</option>
+  <option value="2">Con una aleacion rica en zirconio</option>
+  <option value="3">Cobre y laton</option>
+  <option value="4">Acero y tungsteno</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario09.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

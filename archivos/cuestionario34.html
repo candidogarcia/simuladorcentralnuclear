@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Accidente de Chernobil"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Este accidente provoc&oacute; la muerte, en un primer momento, de 31 personas y la evacuaci&oacute;n de 116.000. La radiaci&oacute;n lleg&oacute; a paises muy alejados del reactor accidentado.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario35.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Accidente de Three Mile Island"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="El 28 de marzo de 1979 el reactor TMI-2 sufri&oacute; una fusi&oacute;n parcial del n&uacute;cleo del reactor. Unas 25.000 personas resid&iacute;an en zonas a menos de ocho kil&oacute;metros de la central.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario34.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Accidente de Mayak"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="En Mayak (URSS) en una planta de procesado de combustible, el 29 de septiembre de 1957 hubo una explosi&oacute;n no nuclear. Al menos 200 personas murieron debido a la radiaci&oacute;n.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario34.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Accidente de Fukushima"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="El 11 de marzo de 2011 un tsunami paraliz&oacute; la central y sus sistemas de enmergencia. Esto provoc&oacute; la fusi&oacute;n del n&uacute;cleo y la liberaci&oacute;n de material radiactivo al exterior.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario34.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+17 - Accidentes nucleares
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+Como cualquier otra creaci&oacute;n humana, las centrales nucleares a veces fallan. La diferencia es que los efectos provocados por un accidente nuclear pueden afectar a territorios muy amplios, de miles de kil&oacute;metros.</p>
+<p>&iquest;Cuales han sido los peores accidentes nucleares?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Accidente de Three Mile Island</option>
+  <option value="2">Accidente de Mayak</option>
+  <option value="3">Accidente de Fukushima</option>
+  <option value="4">Accidente de Chernobil</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario33.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

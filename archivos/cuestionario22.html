@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="En energia cinetica"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Eso es as&iacute;. Energ&iacute;a cin&eacute;tica es lo que tienen los cuerpos en movimiento. El rotor unido al eje de la turbina se mueve y hace girar al generador el&eacute;ctrico.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario23.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En energia termica"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Esto no es cierto. El vapor de agua tiene energ&iacute;a t&eacute;rmica, pero la utiliza para proporcionar energ&iacute;a cin&eacute;tica con un giro de 3.000 RPM de la turbina.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario22.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En energia quimica"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Ni mucho menos. La &uacute;nica energ&iacute;a qu&iacute;mica de una central nuclear es la del combustible de los motores di&eacute;sel auxiliares.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario22.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En energia potencial"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Esto no es as&iacute;. La energ&iacute;a cin&eacute;tica del movimiento del rotor de la turbina no es potencial.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario22.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+11 - Turbina de vapor 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+En el generador de vapor, en el lado del circuito secundario, el agua l&iacute;quida se transforma en vapor a alta presi&oacute;n. Este vapor se env&iacute;a a la turbina para hacerla girar.
+</p>
+<p>&iquest;En qu&eacute; se transforma la energ&iacute;a del vapor de agua a presi&oacute;n?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">En energia termica</option>
+  <option value="2">En energia cinetica</option>
+  <option value="3">En energia quimica</option>
+  <option value="4">En energia potencial</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario21.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

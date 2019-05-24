@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Kripton y Bario"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Esto es cierto, pero la vida media del bario-141 es de 11 minutos y la del kript&oacute;n-92 de unos dos segundos.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario13.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Estroncio,Cesio y Plutonio"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No son elementos que se formen a partir del uranio-235, pero a la larga van quedando en las barras de combustible gastadas.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario12.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Plomo"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es correcto. El plomo puede ser el resultado de la desintegraci&oacute;n del Uranio-235 y del Uranio-238, a lo largo de miles de a&ntilde;os.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario12.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Radio"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No es una buena respuesta. El radio es extremadamente radiactivo, un mill&oacute;n de veces m&aacute;s que el uranio, pero no se obtiene de la desintegraci&oacute;n del Uranio-235.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario12.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+6 - Reacci&oacute;n en cadena 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+En una reacci&oacute;n en cadena los neutrones generados en la primera fisi&oacute;n de un &aacute;tomo de uranio 235 hacen inestables otros &aacute;tomos de uranio. </p>
+
+<p>&iquest;Qu&eacute; elementos qu&iacute;micos se generan al desintegrarse el uranio 235?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Kripton y Bario</option>
+  <option value="2">Estroncio,Cesio y Plutonio</option>
+  <option value="3">Plomo</option>
+  <option value="4">Radio</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario11.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

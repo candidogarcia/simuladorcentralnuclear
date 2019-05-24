@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Estados unidos, Francia y Rusia"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Estados Unidos y Francia son los dos pa&iacute;ses con mayor producci&oacute;n de electricidad nuclear. En la actualidad se est&aacute;n construyendo 29 nuevas centrales en China y 11 en Rusia..";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario37.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Francia, Espanya y Alemania"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Espa&ntilde;a cuenta con ocho reactores, con una potencia instalada de 7.786.100 kilovatios, que representa un 7,56% del total de la capacidad instalada en el pa&iacute;s.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario36.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Estados unidos, Japon y Rusia"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Jap&oacute;n contaba con 54 reactores nucleares antes de la destrucci&oacute;n de seis de ellos en la central de Fukushima. De los 48 restantes, al menos cinco deben ser desmantelados.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario36.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Alemania, Italia y Suiza"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Alemania decidi&oacute; en 2011 adelantar el abandono definitivo de la energ&iacute;a nuclear a 2022. El 39% de la electricidad Suiza proviene de la energ&iacute;a nuclear.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario36.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+18 - Potencia nuclear
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+En 2011 hab&iacute;a 442 reactores nucleares repartidos por 29 pa&iacute;ses. A la cabeza estaba Estados Unidos con 104. Francia tiene 58 reactores que producen el 76% de toda la energ&iacute;a consumida.</p>
+<p>&iquest;Cuales son los tres pa&iacute;ses con mayor potencia nuclear instalada?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Francia, Espanya y Alemania</option>
+  <option value="2">Estados unidos, Francia y Rusia</option>
+  <option value="3">Estados unidos, Japon y Rusia</option>
+  <option value="4">Alemania, Italia y Suiza</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario35.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="Una mezcla con un enriquecimiento de hasta el 20%"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Muy bien. El combustible nuclear contiene hasta un 20% de uranio-235.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario05.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Uranio-238"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="No has acertado. El uranio-238 no es radiactivo y no participa en la fisi&oacute;n.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario04.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Uranio-235"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";document.getElementById("validacion").innerHTML="No es cierto. El combustible nuclear no contiene solo uranio-235. De hecho contiene muy poca cantidad del mismo.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario04.html";
+	contadores();
+	}
+
+	if (textoEscogido=="Uranio enriquecido al 85%"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="As&iacute; no es. Este porcentaje de enriquecimiento se usa en las armas nucleares, pero nunca para combustible.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario04.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+2 - Uranio 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El uranio-235 es el is&oacute;topo radiactivo del uranio. Se descompone de forma natural, con un periodo de 700 millones de a&ntilde;os. </p>
+<p>Si el n&uacute;cleo de este uranio-235 absorbe un neutr&oacute;n, se vuelve inestable y se rompe.</p>
+<p>&iquest;Qu&eacute; tipo de uranio se utiliza en los reactores nucleares?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">Uranio-238</option>
+  <option value="2">Uranio-235</option>
+  <option value="3">Una mezcla con un enriquecimiento de hasta el 20%</option>
+  <option value="4">Uranio enriquecido al 85%</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario03.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237 >
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

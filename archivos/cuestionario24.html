@@ -1,0 +1,162 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+    
+
+	var contador = 0
+
+
+	function contadores()
+	{
+	if (contador==3){
+	window.open('cuestionario01.html', '_self', 'menubar=0, width=500, height=300, left=0, top=0');
+	}
+	}
+
+
+
+	function control()
+    {
+        
+	
+	var indice = document.formulario.opciones.selectedIndex 
+	var textoEscogido = document.formulario.opciones.options[indice].text 
+    	
+	
+	
+	
+	if (textoEscogido=="En corriente alterna"){
+	
+	flechaadelante.width = 30;
+        flechaadelante.height = 30;
+	document.getElementById("validacion").style.color = "#079900";
+	document.getElementById("validacion").innerHTML="Ni m&aacute;s ni menos. El generador proporciona corriente alterna de 50 Hz. Esta electricidad se env&iacute;a a los transformadores para transportarla a larga distancia.";
+	document.getElementById("flechaadelante").src="flechaadelante01.png";
+	document.getElementById("enlace").href = "cuestionario25.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En calor"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Esto no es del todo cierto. El generador el&eacute;ctrico se calienta y se ha de refrigerar, pero esto no es lo importante.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario24.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En radiacion"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Ni por asomo, aunque la corriente el&eacute;ctrica alterna tambi&eacute;n la podemos considerar un fen&oacute;meno ondulatorio con una frecuencia de 50 Hz.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario24.html";
+	contadores();
+	}
+
+	if (textoEscogido=="En corriente continua"){
+	contador = contador + 1
+	
+	document.getElementById("validacion").style.color = "#ff334e";
+	document.getElementById("validacion").innerHTML="Esto no es exactamente as&iacute;. La energ&iacute;a cin&eacute;tica del movimiento del generador el&eacute;ctrico se transforma en corriente el&eacute;ctrica, pero no continua.";
+	document.getElementById("flechaadelante").src="flechaadelantefalsa.png";
+	document.getElementById("enlace").href = "cuestionario24.html";
+	contadores();
+	}
+
+
+    }
+</script>
+
+
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+12 - Generador el&eacute;ctrico 
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+
+<font color="#0B3861" size="3" font face="arial">
+<p>
+El eje de la turbina est&aacute; unido directamente al eje del generador. El generador el&eacute;ctrico proporciona corriente alterna trif&aacute;sica a unos 25.000 voltios.
+<p>&iquest;En qu&eacute; se transforma la energ&iacute;a cin&eacute;tica del eje del generador?</p>
+
+
+
+
+
+
+
+
+<form id="formulario" name="formulario">
+<select id="opciones" name="opciones" onchange="control()">
+  <option value="0">Escoje una opci&oacute;n</option>
+  <option value="1">En corriente continua</option>
+  <option value="2">En calor</option>
+  <option value="3">En radiacion</option>
+  <option value="4">En corriente alterna</option>
+</select>
+</form>
+
+<p id="validacion">
+
+
+</p>
+</font>
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario23.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+<a href="" id="enlace">	
+<img src="flechaadelantefalsa.png" width=1 height=1 id="flechaadelante">
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>

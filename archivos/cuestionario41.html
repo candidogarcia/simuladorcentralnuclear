@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+<title>Simulador central nuclear</title>
+
+
+<script type="text/javascript">
+function generarcodigo(){ 
+var aleatorio = Math.round(Math.random()*(1000-20)+parseInt(20));
+aleatorio = aleatorio + 1;
+var codigo = aleatorio * 777;
+ document.getElementById("codigo").innerHTML=codigo;
+}
+</script>
+
+</head>
+
+<body>
+<table width=484 height=247 bgcolor="#ffe1a8">
+<tr>
+
+<td height=20 bgcolor="#ce8f19" align=center  colspan="2">
+<font color="white" size="4" font face="arial" >
+			
+Puesta en marcha de la Central
+</font>
+
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width=10>
+
+
+</td>
+
+<td>
+<font color="#0B3861" size="3" font face="arial">
+<p>Haz clic sobre el siguiente bot&oacute;n para obtener un c&oacute;digo para poner en marcha la central.</p>
+</font>
+<button type="button"  style="color: #003366; background-color: #99CCFF" onclick="generarcodigo()"><font size="4" color="#8A2908">Obtener c&oacute;digo de puesta en marcha de la central</font></button>
+
+
+
+<font size="20" color="blue">
+<p id="codigo"> &nbsp; </p>
+
+</font>
+
+
+
+</td>
+
+
+
+</tr>
+<table bgcolor="#ffca66">
+
+<tr height=30>
+
+
+
+
+<td width=237 align=right>
+<a href="cuestionario40.html">	
+<img src="flechaatras01.png" width=30 height=30>
+
+</td>
+<td width=237>
+
+
+</td>
+
+</tr>
+
+</table>
+
+</table>
+
+</body>
+
+</html>
