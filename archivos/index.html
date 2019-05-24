@@ -1,0 +1,3075 @@
+<html>
+
+<head>
+
+<title>Simulador central nuclear</title>
+
+
+	
+<script type="text/javascript">
+
+var anclajebarras = 0
+
+var indicebarra = 0
+
+var barra1 = 0
+var barra2 = 0
+var barra3 = 0
+var barra4 = 0
+var barra5 = 0
+var barra6 = 0
+var barra7 = 0
+
+var indicevaso = 0
+
+var indicebarras = 0
+
+var presionreactor = 1
+
+var presionreactorindi
+
+var incrementopresionreactor = 0
+
+var incrementopresionador = 0
+
+var bombasprimario = 0
+
+var bombassecundario = 0
+
+var cantidadcombustible = barra1 + barra2 + barra3 + barra4 + barra5 + barra6 + barra7
+
+var temperaturareactor = 0
+
+var temperaturareactordecimal = 0 
+
+var valorbarrascontrol = 0
+
+var bombaprimario1 = 0 
+var bombaprimario2 = 0
+var bombaprimario3 = 0 
+var bombaprimario4 = 0
+
+var bombasecundario1 = 0 
+var bombasecundario2 = 0
+var bombasecundario3 = 0 
+var bombasecundario4 = 0
+
+var presalim1 = 0 
+var presalim2 = 0 
+var presalim3 = 0 
+var presalim4 = 0 
+var presalim = 0 
+
+
+var tempvapor = 0 
+
+var caudal1 = 0
+var caudal2 = 0
+var caudal3 = 0
+var caudal4 = 0
+var caudal = 0
+
+var presvapor = 1
+
+var energiaacumulada = 0
+
+var factorbombacondensador = 1
+
+var intermitentealarmareactor = 0
+
+var intermitentealarmapotencia = 0
+
+var intermitentealarmacondensador = 0
+
+var intermitentealarmacondensador1 = 0
+
+var contadordescensobarras = 0
+
+var contadortiempobarras = 0
+
+var barrasgastadas = 0
+
+var indicebarrasgastadas = 1
+
+var arranque = 0
+
+
+
+
+function comprobarcodigo(){
+document.getElementById('tecla1').play()
+var clave = document.getElementById("contrasena").value;
+clave = parseInt(clave);
+var resto = clave % 777;
+
+if(resto==0){
+arranque=1;
+document.getElementById("clave").src="clavecorrecta.png";
+
+}
+
+if(resto!=0){
+arranque=0;
+document.getElementById("clave").src="introducirclave.png";
+
+}
+
+}
+
+
+
+
+function informacion(){
+
+window.open('informacion01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+}
+
+
+
+	function panel(valor){
+
+
+
+		if (valor==1) {
+		
+		window.open('vasodelreactor01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+		if (valor==2) {
+		
+		window.open('presionador01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+		if (valor==3) {
+		
+		window.open('generadorvapor01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+		if (valor==4) {
+		
+		window.open('turbina01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+		if (valor==5) {
+		
+		window.open('generadorelectrico01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+		if (valor==6) {
+		
+		window.open('condensador01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+		if (valor==7) {
+		
+		window.open('bombaprimario01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+		if (valor==8) {
+		
+		window.open('bombasecundario01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+
+		if (valor==9) {
+		
+		window.open('bomballenado01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+		if (valor==10) {
+		
+		window.open('bombacondensador01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+		if (valor==11) {
+		
+		window.open('informacion01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+		if (valor==12) {
+		
+		window.open('cuestionario01.html', '_blank', 'menubar=0, width=500, height=300, left=0, top=0');
+
+		}
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+temporizador = setInterval(principal, 1000);
+
+
+
+
+function principal(tipo,valor)
+
+{
+
+if(arranque==1){
+
+
+
+		
+		if ((tipo==1)&&(anclajebarras==1) && (presionreactor==20))
+		{		
+		indicebarras = valor
+
+		var controlbarrasmanual = valor
+
+		if (controlbarrasmanual==21){
+
+		controlbarrasmanual = 20
+
+		}
+
+		var controlbarras = "controlbarras" + controlbarrasmanual + ".png"
+	
+		document.getElementById("controlbarras").src=controlbarras;
+
+
+		valorbarrascontrol = valor
+
+		valor = 21 - valor + 1
+
+		
+
+		var indicadorbarras = "indicador" + valor + ".png"
+
+
+
+		var barrascontrolmanual = valor
+
+
+		if (barrascontrolmanual==21){
+
+		barrascontrolmanual = 20
+
+		}
+
+		var barrascontrol = "barrascontrol" + barrascontrolmanual + ".png"
+	
+		document.getElementById("indicadorbarras").src=indicadorbarras;
+		document.getElementById("barrascontrol").src=barrascontrol;				}
+
+
+
+
+		if (tipo==2  && (presionreactor==20))
+		{		
+		document.getElementById('tecla1').play()		
+		anclajebarras = valor
+
+		if (anclajebarras==1)
+		{		
+		document.getElementById("offbarras").src="offverde.png";				}
+		
+		if (anclajebarras==0)
+		{		
+		document.getElementById("offbarras").src="offrojo.png";
+
+		
+						}
+				}
+		
+
+
+		
+
+		if ((tipo==3)&&(presionreactor==1))
+		{
+
+		indicebarra = valor
+
+
+		document.getElementById('tecla1').play()
+
+		}
+
+
+		if ((tipo==4)&&(presionreactor==1))
+		{
+			document.getElementById('tecla1').play()
+			if (valor==1)
+			{
+
+				
+
+				if (indicebarra==1)
+				
+				{
+
+
+				barra1 = 1
+
+
+				}
+				
+				
+				if (indicebarra==2)
+				
+				{
+
+
+				barra2 = 1
+
+
+				}
+
+
+				if (indicebarra==3)
+				
+				{
+
+
+				barra3 = 1
+
+
+				}
+				
+				
+				if (indicebarra==4)
+				
+				{
+
+
+				barra4 = 1
+
+
+				}
+
+
+				if (indicebarra==5)
+				
+				{
+
+
+				barra5 = 1
+
+
+				}
+				
+				
+				if (indicebarra==6)
+				
+				{
+
+
+				barra6 = 1
+
+
+				}
+
+				if (indicebarra==7)
+				
+				{
+
+
+				barra7 = 1
+
+
+				}
+				
+				
+
+
+			}
+
+
+
+
+			if (valor==0)
+			{
+
+				if (indicebarra==1)
+				
+				{
+
+
+				barra1 = 0
+
+
+				}
+				
+				
+				if (indicebarra==2)
+				
+				{
+
+
+				barra2 = 0
+
+
+				}
+
+
+				if (indicebarra==3)
+				
+				{
+
+
+				barra3 = 0
+
+
+				}
+				
+				
+				if (indicebarra==4)
+				
+				{
+
+
+				barra4 = 0
+
+
+				}
+
+
+				if (indicebarra==5)
+				
+				{
+
+
+				barra5 = 0
+
+
+				}
+				
+				
+				if (indicebarra==6)
+				
+				{
+
+
+				barra6 = 0
+
+
+				}
+
+				if (indicebarra==7)
+				
+				{
+
+
+				barra7 = 0
+
+
+				}
+				
+				
+
+
+			}
+
+
+
+		
+
+
+		}
+
+
+
+		
+		if (tipo==5)
+		{
+
+		document.getElementById('tecla1').play()
+		incrementopresionreactor = valor
+
+
+		if (valor==1)
+		{
+		document.getElementById("offllenar").src="offverde.png";
+		document.getElementById("offvaciar").src="offrojo.png";
+		}
+
+
+
+		if (valor==0)
+		{
+		document.getElementById("offllenar").src="offrojo.png";
+		
+
+		}
+
+
+		}
+
+
+		if ((tipo==6)&&(presionreactor<17))
+		{
+		document.getElementById('tecla1').play()
+
+		incrementopresionreactor = valor
+
+		if (valor==-1)
+		{
+		document.getElementById("offvaciar").src="offverde.png";
+		document.getElementById("offllenar").src="offrojo.png";
+		}
+
+
+
+		if (valor==0)
+		{
+		document.getElementById("offvaciar").src="offrojo.png";
+		
+		}
+		
+		
+
+		}
+
+
+		if ((tipo==7)&&(presionreactor>15))
+		{
+		document.getElementById('tecla1').play()
+
+		incrementopresionador = valor
+
+		if (valor==1)
+		{
+		document.getElementById("offdepresionador").src="offrojo.png";
+		document.getElementById("offpresionador").src="offverde.png";
+		}
+
+
+
+		if (valor==0)
+		{
+		document.getElementById("offpresionador").src="offrojo.png";
+		
+		}
+		
+		
+
+		}
+
+
+
+
+		if ((tipo==8)&&(presionreactor>15))
+		{
+		document.getElementById('tecla1').play()
+
+		incrementopresionador = valor
+
+		if (valor==-1)
+		{
+		document.getElementById("offdepresionador").src="offverde.png";
+		document.getElementById("offpresionador").src="offrojo.png";
+		}
+
+
+
+		if (valor==0)
+		{
+		document.getElementById("offdepresionador").src="offrojo.png";
+		
+		}
+		
+		
+
+		}
+
+
+
+		
+		if (tipo==9)
+		{
+
+		document.getElementById('tecla1').play()
+		
+		if (valor==1)
+		{
+		document.getElementById("offbombaprimario1").src="offverde.png";
+		
+		bombaprimario1 = 1
+		
+		}
+
+
+		if (valor==2)
+		{
+		document.getElementById("offbombaprimario1").src="offrojo.png";
+		
+
+		bombaprimario1 = 0
+
+		}
+
+		if (valor==3)
+		{
+		document.getElementById("offbombaprimario2").src="offverde.png";
+		
+		bombaprimario2 = 1
+
+		}
+
+
+		if (valor==4)
+		{
+		document.getElementById("offbombaprimario2").src="offrojo.png";
+		
+		bombaprimario2 = 0
+
+		}
+		
+		if (valor==5)
+		{
+		document.getElementById("offbombaprimario3").src="offverde.png";
+		
+		bombaprimario3 = 1
+
+		}
+
+
+		if (valor==6)
+		{
+		document.getElementById("offbombaprimario3").src="offrojo.png";
+		
+		bombaprimario3 = 0
+
+		}
+
+		if (valor==7)
+		{
+		document.getElementById("offbombaprimario4").src="offverde.png";
+		
+		bombaprimario4 = 1
+
+		}
+
+
+		if (valor==8)
+		{
+		document.getElementById("offbombaprimario4").src="offrojo.png";
+		
+		bombaprimario4 = 0
+
+		}
+
+
+
+		}
+
+
+
+
+
+
+
+		if (tipo==10)
+		{
+
+		document.getElementById('tecla1').play()
+		
+		if (valor==1)
+		{
+		document.getElementById("offbombasecundario1").src="offverde.png";
+		bombasecundario1 = 1
+
+		
+		}
+
+
+		if (valor==2)
+		{
+		document.getElementById("offbombasecundario1").src="offrojo.png";
+		bombasecundario1 = 0
+		}
+
+		if (valor==3)
+		{
+		document.getElementById("offbombasecundario2").src="offverde.png";
+		bombasecundario2 = 1
+		}
+
+
+		if (valor==4)
+		{
+		document.getElementById("offbombasecundario2").src="offrojo.png";
+		bombasecundario2 = 0
+		}
+		
+		if (valor==5)
+		{
+		document.getElementById("offbombasecundario3").src="offverde.png";
+		bombasecundario3 = 1
+		}
+
+
+		if (valor==6)
+		{
+		document.getElementById("offbombasecundario3").src="offrojo.png";
+		bombasecundario3 = 0
+		}
+
+		if (valor==7)
+		{
+		document.getElementById("offbombasecundario4").src="offverde.png";
+		bombasecundario4 = 1
+		}
+
+
+		if (valor==8)
+		{
+		document.getElementById("offbombasecundario4").src="offrojo.png";
+		bombasecundario4 = 0
+		}
+
+
+
+
+		}
+
+
+
+
+
+		
+		var vasoactual = "vaso" + barra1 + barra2 + barra3 + barra4 + barra5 + barra6 + barra7 + barrasgastadas + ".png"
+		
+		document.getElementById("vaso").src=vasoactual;
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		presionreactor = presionreactor + incrementopresionreactor + incrementopresionador
+
+		if ((presionreactor>16)&&(incrementopresionreactor==1))
+		{
+
+		presionreactor = 16
+
+		}
+
+
+		if ((presionreactor>20)&&(incrementopresionador==1))
+		{
+
+		presionreactor = 20
+
+		}
+
+
+
+		
+		if ((presionreactor<16)&&(incrementopresionador==-1))
+		{
+
+		presionreactor = 16
+
+		}
+
+
+
+
+		if (presionreactor<1)
+		{
+
+		presionreactor = 1
+
+		}
+
+
+		
+		var presionreactorindi = "presionreactor" + presionreactor + ".jpg"
+
+		
+	
+		document.getElementById("presionreactor").src=presionreactorindi;
+			
+
+
+
+
+
+
+
+		if ((indicebarras>0)  && (presionreactor<20))
+		{
+
+		anclajebarras = 0
+		document.getElementById("offbarras").src="offrojo.png";
+		
+		
+		
+		indicebarras = indicebarras - 1
+
+		contadordescensobarras = contadordescensobarras + 1
+
+		
+		if (indicebarras>1){
+
+		document.getElementById('alarma1').play()
+
+		}
+
+		
+
+		if (indicebarras<1){
+
+		indicebarras = 1
+
+		}
+
+
+
+
+
+		var controlbarras = "controlbarras" + indicebarras + ".png"
+	
+		document.getElementById("controlbarras").src=controlbarras;
+
+
+
+		var inversaindicebarras = 22 - indicebarras
+
+
+		var indicadorbarras = "indicador" + inversaindicebarras + ".png"
+
+
+
+		var barrascontrolmanual = inversaindicebarras
+
+
+		if (barrascontrolmanual==22){
+
+		barrascontrolmanual = 21
+
+		}
+
+
+		var reactorbarras = barrascontrolmanual
+
+		if (reactorbarras==21){
+
+		reactorbarras = 20
+
+		}
+
+
+		var barrascontrol = "barrascontrol" + reactorbarras + ".png"
+	
+		document.getElementById("indicadorbarras").src=indicadorbarras;
+		document.getElementById("barrascontrol").src=barrascontrol;	
+
+
+
+
+
+
+		}
+
+
+
+
+
+		
+		if ((indicebarras>0)  && (presionreactor == 20))
+		{
+
+		contadordescensobarras = 0 
+
+		if (barra1 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+
+
+		
+		if (barra2 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+		if (barra3 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+		
+		if (barra4 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+
+		if (barra5 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+		
+		if (barra6 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+		}
+
+		if (barra7 == 1)
+		{
+
+		temperaturareactordecimal = temperaturareactordecimal + 0.002857*indicebarras*indicebarrasgastadas
+
+		
+
+		
+		}
+
+
+
+		}
+
+		if (bombasecundario1==1)
+		{
+		
+
+		temperaturareactordecimal = temperaturareactordecimal - bombaprimario1*0.095
+		}
+
+
+		if (bombasecundario2==1)
+		{
+		
+
+		temperaturareactordecimal = temperaturareactordecimal - bombaprimario2*0.095
+		}
+
+
+		if (bombasecundario3==1)
+		{
+		
+
+		temperaturareactordecimal = temperaturareactordecimal - bombaprimario3*0.095
+		}
+
+
+
+		if (bombasecundario4==1)
+		{
+		
+
+		temperaturareactordecimal = temperaturareactordecimal - bombaprimario4*0.095
+		}
+
+
+
+
+		if (temperaturareactordecimal<1)
+		{
+		
+
+		temperaturareactordecimal = 1
+		}
+
+
+
+	
+		
+
+		temperaturareactor = parseInt(temperaturareactordecimal)
+		
+
+
+
+		if (temperaturareactor<1)
+		{
+
+		temperaturareactor = 1
+
+		}
+
+
+		if (temperaturareactor>21)
+		{
+
+		temperaturareactor = 21
+
+		}
+
+
+
+		var temperaturareactorindi = "indicadortemperatura" + temperaturareactor + ".jpg"
+
+		
+		
+
+
+
+		document.getElementById("temperaturareactor").src=temperaturareactorindi;
+
+
+
+
+		if ((bombaprimario1==1) && (bombasecundario1==1))
+		{
+
+		presalim1 = 1 
+
+		}
+
+		if ((bombaprimario1==0) || (bombasecundario1==0))
+		{
+
+		presalim1 = 0 
+
+		}
+
+		
+		if ((bombaprimario2==1) && (bombasecundario2==1))
+		{
+
+		presalim2 = 1 
+
+		}
+
+
+		if ((bombaprimario2==0) || (bombasecundario2==0))
+		{
+
+		presalim2 = 0 
+
+		}
+		
+		if ((bombaprimario3==1) && (bombasecundario3==1))
+		{
+
+		presalim3 = 1 
+
+		}
+
+
+		if ((bombaprimario3==0) || (bombasecundario3==0))
+		{
+
+		presalim3 = 0 
+
+		}
+		
+		if ((bombaprimario4==1) && (bombasecundario4==1))
+		{
+
+		presalim4 = 1 
+
+		}
+
+		if ((bombaprimario4==0) || (bombasecundario4==0))
+		{
+
+		presalim4 = 0 
+
+		}
+
+		if ((presalim1==1) || (presalim2==1) || (presalim3==1) || (presalim4==1))
+		{
+
+		presalim = presionreactor*1.1
+
+		}
+		
+
+		if ((presalim1==0) && (presalim2==0) && (presalim3==0) && (presalim4==0))
+		{
+
+		presalim = 1
+
+		}
+
+
+		if (presalim>21)
+		{
+
+		presalim = 21
+
+		}
+
+
+		presalim = parseInt(presalim)
+
+
+		var presalimindi = "presionreactor" + presalim + ".jpg"
+		document.getElementById("presionalimentacion").src=presalimindi;
+
+
+
+		if ((presalim1==1) || (presalim2==1) || (presalim3==1) || (presalim4==1))
+		{
+
+		tempvapor = temperaturareactor*0.8
+
+		}
+
+
+		if ((presalim1==0) && (presalim2==0) && (presalim3==0) && (presalim4==0))
+		{
+
+		tempvapor = 1
+
+		}
+
+		tempvapor = parseInt(tempvapor)
+
+
+		if (tempvapor==0)
+		{
+
+		tempvapor = 1
+
+		}
+
+
+		var tempvaporindi = "indicadortemperatura" + tempvapor + ".jpg"
+		document.getElementById("temperaturavapor").src=tempvaporindi;
+
+
+		if (tempvapor>5)
+		{
+
+
+		if ((presalim1==1) || (presalim2==1) || (presalim3==1) || (presalim4==1))
+		{
+
+		presvapor = tempvapor*0.6
+
+		}
+
+
+		if ((presalim1==0) && (presalim2==0) && (presalim3==0) && (presalim4==0))
+		{
+
+		presvapor = 1
+
+		}
+
+		presvapor = parseInt(presvapor)
+
+
+		if (presvapor==0)
+		{
+
+		presvapor = 1
+
+		}
+		}
+
+
+
+		if (tempvapor<6)
+		{
+
+
+		if ((presalim1==1) || (presalim2==1) || (presalim3==1) || (presalim4==1))
+		{
+
+		presvapor = tempvapor*0.9
+
+		}
+
+
+		if ((presalim1==0) && (presalim2==0) && (presalim3==0) && (presalim4==0))
+		{
+
+		presvapor = 1
+
+		}
+
+		presvapor = parseInt(presvapor)
+
+
+		if (presvapor==0)
+		{
+
+		presvapor = 1
+
+		}
+		}
+
+
+		var presvaporindi = "presionreactor" + presvapor + ".jpg"
+		document.getElementById("presionvapor").src=presvaporindi;
+
+
+
+		if (presalim1==1)
+		{
+
+		caudal1 = 2
+
+		}
+
+		
+		if (presalim1==0)
+		{
+
+		caudal1 = 0
+
+		}
+
+		if (presalim2==1)
+		{
+
+		caudal2 = 2
+
+		}
+
+		if (presalim2==0)
+		{
+
+		caudal2 = 0
+
+		}
+
+		if (presalim3==1)
+		{
+
+		caudal3 = 2
+
+		}
+
+		if (presalim3==0)
+		{
+
+		caudal3 = 0
+
+		}
+
+		if (presalim4==1)
+		{
+
+		caudal4 = 2
+
+		}
+
+
+		if (presalim4==0)
+		{
+
+		caudal4 = 0
+
+		}
+
+
+
+
+
+
+		caudal = caudal1 + caudal2 + caudal3 + caudal4
+
+
+		if (caudal==0)
+		{
+
+		caudal = 1
+
+		}
+
+
+		var caudalindi = "caudal" + caudal + ".png"
+		document.getElementById("caudalalimentacion").src=caudalindi;
+
+
+
+
+		indicepotencia = presvapor*tempvapor*caudal*0.025
+
+		indicepotencia = parseInt(indicepotencia)
+
+
+		if (indicepotencia>28)
+		{
+
+		indicepotencia = 28
+
+		}
+
+
+		var indicepotenciaindi = "diagramabarras" + indicepotencia + ".png"
+		document.getElementById("potenciabarras").src=indicepotenciaindi;
+
+		var potencia = indicepotencia*10 + " MW"
+
+		document.getElementById("potencia").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("potencia").style.color="#3355EE";
+		document.getElementById("potencia").style.fontSize="medium";
+		
+		
+		document.getElementById("potencia").innerHTML=potencia;
+
+
+		
+		if (indicepotencia>0)
+		{
+
+		
+		document.getElementById("rpmturbina").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("rpmturbina").style.color="#3355EE";
+		document.getElementById("rpmturbina").style.fontSize="medium";
+		
+		document.getElementById("rpmturbina").innerHTML="3.000 RPM";
+
+		document.getElementById("voltaje").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("voltaje").style.color="#3355EE";
+		document.getElementById("voltaje").style.fontSize="medium";
+		
+		document.getElementById("voltaje").innerHTML="25.000 V";
+
+		
+		document.getElementById("frecuencia").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("frecuencia").style.color="#3355EE";
+		document.getElementById("frecuencia").style.fontSize="medium";
+		
+		document.getElementById("frecuencia").innerHTML="50 Hz";
+
+		}
+
+		
+		if (indicepotencia<1)
+		{
+
+		
+		document.getElementById("rpmturbina").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("rpmturbina").style.color="#3355EE";
+		document.getElementById("rpmturbina").style.fontSize="medium";
+		
+		
+		document.getElementById("rpmturbina").innerHTML="0 RPM";
+
+		document.getElementById("voltaje").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("voltaje").style.color="#3355EE";
+		document.getElementById("voltaje").style.fontSize="medium";
+		
+		document.getElementById("voltaje").innerHTML="0 V";
+
+		
+		document.getElementById("frecuencia").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("frecuencia").style.color="#3355EE";
+		document.getElementById("frecuencia").style.fontSize="medium";
+		
+		document.getElementById("frecuencia").innerHTML="0 Hz";
+
+
+		}
+
+
+
+		
+		energiaacumulada = energiaacumulada + indicepotencia/3.6
+		
+		var energiaacumuladaentera = parseInt(energiaacumulada)
+
+		var indiceenergiaacumulada = energiaacumuladaentera + " Kwh"
+
+		document.getElementById("energiaacumulada").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("energiaacumulada").style.color="#3355EE";
+		document.getElementById("energiaacumulada").style.fontSize="medium";
+		
+		document.getElementById("energiaacumulada").innerHTML=indiceenergiaacumulada;
+
+
+		if (energiaacumuladaentera>9100)
+		{
+		
+		window.open('diploma.html', '_blank', 'menubar=0, width=1000, height=800, left=0, top=0');
+		
+
+		}
+
+
+
+
+		var factorcarga = indicepotencia*100/27
+
+		factorcarga = parseInt(factorcarga)
+
+		var indicefactorcarga = factorcarga + " %"
+
+		document.getElementById("factorcarga").style.backgroundColor="#e9e9e9"; 
+      		document.getElementById("factorcarga").style.color="#3355EE";
+		document.getElementById("factorcarga").style.fontSize="medium";
+		
+		document.getElementById("factorcarga").innerHTML=indicefactorcarga;
+
+
+
+
+
+		if (tipo==15)
+		{
+
+		document.getElementById('tecla1').play()
+		
+		if (valor==1)
+		{
+		document.getElementById("bombacondensadoroff").src="offverde.png";
+		factorbombacondensador = 1.3
+
+		
+		}
+
+
+		if (valor==0)
+		{
+		document.getElementById("bombacondensadoroff").src="offrojo.png";
+		factorbombacondensador = 1
+		}
+
+
+		}
+
+
+
+		var tempvaporcondensador = tempvapor/3
+		tempvaporcondensador = parseInt(tempvaporcondensador)
+
+		if (tempvaporcondensador==0)
+		{
+		tempvaporcondensador=1;
+		
+		}
+
+
+
+		var indicetempvaporcondensador = "indicadortemperatura" + tempvaporcondensador + ".jpg"
+		document.getElementById("temperaturavaporcondensador").src=indicetempvaporcondensador;
+
+
+
+		var tempaguacondensador = tempvaporcondensador/factorbombacondensador
+		tempaguacondensador = parseInt(tempaguacondensador)
+
+		if (tempaguacondensador==0)
+		{
+		tempaguacondensador=1;
+		
+		}
+
+
+
+		var indicetempaguacondensador = "indicadortemperatura" + tempaguacondensador + ".jpg"
+		document.getElementById("temperaturaaguacondensador").src=indicetempaguacondensador;
+
+
+
+
+
+
+
+
+
+		if (temperaturareactor>19)
+		{
+		
+		document.getElementById('alarma').play()
+
+		intermitentealarmareactor = intermitentealarmareactor + 1;
+
+		if (intermitentealarmareactor==2)
+
+		{
+		
+		intermitentealarmareactor = 0;
+
+		}
+
+
+		if (intermitentealarmareactor==1)
+		{
+		
+		
+		document.getElementById("alarmatemperaturareactor").src="temperaturareactorrojo.png";
+		
+		}
+
+		if (intermitentealarmareactor==0)
+		{
+		
+		
+		document.getElementById("alarmatemperaturareactor").src="temperaturareactoramarillo.png";
+		
+		}
+		
+		}
+
+
+
+
+		
+		if (temperaturareactor<20)
+		{
+		
+		
+		document.getElementById("alarmatemperaturareactor").src="temperaturareactorverde.png";
+		
+		}
+
+
+
+
+
+
+
+
+
+		
+		if (indicepotencia>27)
+		{
+		
+		document.getElementById('alarma').play()
+
+
+		intermitentealarmapotencia = intermitentealarmapotencia + 1;
+
+		if (intermitentealarmapotencia==2)
+
+		{
+		
+		intermitentealarmapotencia = 0;
+
+		}
+
+
+		if (intermitentealarmapotencia==1)
+		{
+		
+		
+		document.getElementById("alarmapotencia").src="potenciarojo.png";
+		
+		}
+
+		if (intermitentealarmapotencia==0)
+		{
+		
+		
+		document.getElementById("alarmapotencia").src="potenciaamarillo.png";
+		
+		}
+		
+		}
+
+
+
+
+		
+		if (indicepotencia<28)
+		{
+		
+		
+		document.getElementById("alarmapotencia").src="potenciaverde.png";
+		
+		}
+
+
+
+
+
+
+
+
+
+		if (indicepotencia>0)
+		{
+		
+		intermitentealarmacondensador = intermitentealarmacondensador + 1;
+
+		if (intermitentealarmacondensador==12)
+
+		{
+		intermitentealarmacondensador = intermitentealarmacondensador - 1;
+
+		intermitentealarmacondensador1 = intermitentealarmacondensador1 + 1
+
+
+		if (intermitentealarmacondensador1==2)
+
+		{
+		
+		intermitentealarmacondensador1 = 0;
+
+		}
+
+
+		if (intermitentealarmacondensador1==1)
+		{
+		document.getElementById('alarma').play()
+		
+		document.getElementById("alarmacondensador").src="aguacondensadorrojo.png";
+		
+		}
+
+		if (intermitentealarmacondensador1==0)
+		{
+		
+		
+		document.getElementById("alarmacondensador").src="aguacondensadoramarillo.png";
+		
+		}
+		
+		}
+
+		}
+
+
+		
+		if (factorbombacondensador==1.3)
+		{
+		intermitentealarmacondensador = 5
+		
+		document.getElementById("alarmacondensador").src="aguacondensadorverde.png";
+		
+		}
+
+
+
+		
+		if (indicepotencia>0){
+
+		contadortiempobarras = contadortiempobarras + 1
+
+
+		if (contadortiempobarras==600){
+
+		barrasgastadas = 1
+		
+		indicebarrasgastadas = 0.1
+		}
+
+		}
+
+
+
+
+
+
+		if (vasoactual=="vaso00000001.png") {
+
+		contadortiempobarras = 0
+
+		barrasgastadas = 0
+
+		indicebarrasgastadas = 1
+
+		}
+
+
+
+
+		
+
+
+
+}
+
+}
+
+
+
+</script>
+
+</head>
+
+
+
+
+<body onload="informacion()">
+
+<audio id="alarma1" src="alarma1.mp3"></audio>
+
+<audio id="tecla1" src="tecla.mp3"></audio>
+
+<audio id="alarma" src="alarma.mp3"></audio>
+
+
+<table width="100%" border=”1” bordercolor="#EE8800" cellpadding="2" cellspacing="1" BGCOLOR="#0B6100">
+		<tr>
+			<td bgcolor="#EE8800">
+			<img src="titulo.png" height="70" width="700">
+			</td>
+		</tr>
+</table>
+
+<table width="100%" border=”1” bordercolor="#EE8800" cellpadding="2" cellspacing="1" BGCOLOR="#0B6100">
+			
+			
+		<tr>
+
+
+			<td align = "center" bgcolor="#EE8800" width="240">
+
+			<font color="#3355EE" size="4" font face="arial">
+			
+			Barras de control
+			</font>
+
+			</td>
+
+
+			<td align = "center" bgcolor="#EE8800" width="200">
+
+			<font color="#3355EE" size="4" font face="arial">
+			
+			Carga de combustible
+			</font>
+
+			</td>
+
+
+			<td align = "center" bgcolor="#EE8800">
+
+			<font color="#3355EE" size="4" font face="arial">
+			
+			Planta
+			</font>
+		
+
+			</td>
+
+
+
+		</tr>
+</table>
+
+
+
+
+<table width="100%" border=”1” bordercolor="#3355EE" cellpadding="2" cellspacing="1" BGCOLOR="#3355EE">
+
+		
+
+
+
+
+		<tr>
+
+
+
+
+
+			<td height="285" width="100" bgcolor="#3355EE">
+			<img src="barrascontrol20.png" height="285" width="100" id="barrascontrol">			</td>
+			
+			<td>
+
+			<table bgcolor="#3355EE" width="130">
+			<tr>
+			<td height="120" width="120" bgcolor="#3355EE" colspan="2" align = "center">
+			<img src="indicador21.png" height="120" width="120" id="indicadorbarras">			</td>
+			</tr>
+			<tr>
+			<td colspan="2"  align = "center" bgcolor="#3355EE">
+			
+			<font color="white" size="4" font face="arial">
+			
+			 
+			</font>
+ 			</td>
+			
+			</tr>
+			<td height="142" width="71" bgcolor="#3355EE" align = "center">
+			<img src="controlbarras1.png" height="142" width="45" usemap="#controlbarras" id="controlbarras">
+
+
+			<map name="controlbarras">
+			<area shape="circle" coords="20,10,20" a href="#" onmouseover="principal(1,21)"/>
+  			<area shape="circle" coords="20,14,20" a href="#" onmouseover="principal(1,20)"/>
+			<area shape="circle" coords="20,18,20" a href="#" onmouseover="principal(1,19)"/>
+			<area shape="circle" coords="20,22,20" a href="#" onmouseover="principal(1,18)"/>
+			<area shape="circle" coords="20,26,20" a href="#" onmouseover="principal(1,17)"/>
+			<area shape="circle" coords="20,30,20" a href="#" onmouseover="principal(1,16)"/>
+			<area shape="circle" coords="20,34,20" a href="#" onmouseover="principal(1,15)"/>
+			<area shape="circle" coords="20,38,20" a href="#" onmouseover="principal(1,14)"/>
+			<area shape="circle" coords="20,42,20" a href="#" onmouseover="principal(1,13)"/>
+			<area shape="circle" coords="20,48,20" a href="#" onmouseover="principal(1,12)"/>
+			<area shape="circle" coords="20,54,20" a href="#" onmouseover="principal(1,11)"/>
+			<area shape="circle" coords="20,60,20" a href="#" onmouseover="principal(1,10)"/>
+			<area shape="circle" coords="20,66,20" a href="#" onmouseover="principal(1,9)"/>
+			<area shape="circle" coords="20,72,20" a href="#" onmouseover="principal(1,8)"/>
+			<area shape="circle" coords="20,78,20" a href="#" onmouseover="principal(1,7)"/>
+			<area shape="circle" coords="20,82,20" a href="#" onmouseover="principal(1,6)"/>
+			<area shape="circle" coords="20,86,20" a href="#" onmouseover="principal(1,5)"/>
+			<area shape="circle" coords="20,90,20" a href="#" onmouseover="principal(1,4)"/>
+			<area shape="circle" coords="20,94,20" a href="#" onmouseover="principal(1,3)"/>
+			<area shape="circle" coords="20,96,20" a href="#" onmouseover="principal(1,2)"/>
+			<area shape="circle" coords="20,100,20" a href="#" onmouseover="principal(1,1)"/>
+			
+					
+
+			</map>
+
+			</td>
+			<td height="142" width="71" bgcolor="#3355EE">
+			
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(2,1)" width="50" height="50" id="onbarras" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(2,0)" width="50" height="50" id="offbarras" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+						</td>
+
+
+
+
+
+
+			<tr>
+			</tr>
+			</table>
+
+
+
+
+
+			</td>
+
+
+			<td>
+
+				<table bgcolor="#3355EE" width="200">
+				<tr>
+				<td bgcolor="#3355EE" align="center">
+				<img src="vaso00000000.png" height="180" width="180" id="vaso"  usemap="#vaso">
+
+				<map name="vaso">
+  				<area shape="circle" coords="60,40,20"  onclick="principal(3,1)"/>
+				<area shape="circle" coords="120,40,20"  onclick="principal(3,2)"/>
+				<area shape="circle" coords="30,90,20"  onclick="principal(3,6)"/>
+				<area shape="circle" coords="90,90,20"  onclick="principal(3,7)"/>
+				<area shape="circle" coords="150,90,20"  onclick="principal(3,3)"/>
+				<area shape="circle" coords="60,140,20"  onclick="principal(3,5)"/>
+				<area shape="circle" coords="120,140,20"  onclick="principal(3,4)"/>
+				
+			
+			
+					
+
+			</map>
+
+				</td>
+				</tr>
+
+				<tr>
+
+				<td height="30">
+				</td>
+
+
+				</tr>
+
+
+				<tr>
+				<td align="center">
+					<table  border=”1” bordercolor="black" align = "center">
+					<tr>
+					<td bgcolor="#3355EE">
+					<input type=image src="teclaintro.png" onclick="principal(4,1)" width="50" height="50" id="ponerbarra" class="myButton">
+					</td>
+					<td bgcolor="#3355EE">
+					<input type=image src="teclaextraer.png" onclick="principal(4,0)" width="50" height="50" id="quitarbarra" class="myButton">
+					</td>
+					</tr>
+					</table>
+				</td>
+				
+				</tr>
+
+
+
+				</table>
+
+			</td>
+
+
+			<td height="285" width="100%" bgcolor="#3355EE">
+			<img src="planta02.png" id="planta" usemap="#planta">			
+
+			<map name="planta">
+
+  			<area shape="circle" coords="70,120,20"  onclick="panel(1)"/>
+			<area shape="circle" coords="122,45,20"  onclick="panel(2)"/>
+  			<area shape="circle" coords="150,130,20"  onclick="panel(3)"/>
+			<area shape="circle" coords="215,130,20"  onclick="panel(3)"/>
+  			<area shape="circle" coords="275,130,20"  onclick="panel(3)"/>
+			<area shape="circle" coords="335,130,20"  onclick="panel(3)"/>
+			<area shape="circle" coords="480,100,20"  onclick="panel(4)"/>
+			<area shape="circle" coords="630,100,20"  onclick="panel(5)"/>
+			<area shape="circle" coords="470,205,20"  onclick="panel(6)"/>
+
+			<area shape="circle" coords="150,170,20"  onclick="panel(7)"/>
+			<area shape="circle" coords="215,170,20"  onclick="panel(7)"/>
+			<area shape="circle" coords="275,170,20"  onclick="panel(7)"/>
+			<area shape="circle" coords="335,170,20"  onclick="panel(7)"/>
+
+			<area shape="circle" coords="170,205,20"  onclick="panel(8)"/>
+			<area shape="circle" coords="235,205,20"  onclick="panel(8)"/>
+			<area shape="circle" coords="295,205,20"  onclick="panel(8)"/>
+			<area shape="circle" coords="355,205,20"  onclick="panel(8)"/>
+
+			<area shape="circle" coords="70,230,20"  onclick="panel(9)"/>
+			<area shape="circle" coords="535,215,20"  onclick="panel(10)"/>
+
+			<area shape="circle" coords="25,268,20"  onclick="panel(11)"/>
+			<area shape="circle" coords="110,268,20"  onclick="panel(12)"/>
+				
+
+			</map>
+
+
+
+
+			</td>
+
+		</tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+<table>
+
+<tr>
+
+
+<td>
+
+
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" colspan="3">
+
+
+
+			<font color="3355EE" size="3" font face="arial">
+			
+			Vaso del reactor 
+			</font>
+
+
+
+</td>
+
+</tr>
+
+				<tr>
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Llen.
+				</font>
+				</td>
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Pres. reactor 
+				</font>
+				</td>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Vac. 
+				</font>
+				</td>
+
+				</tr>
+
+<tr>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(5,1)" width="40" height="40" id="onllenar" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(5,0)" width="40" height="40" id="offllenar" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+<td>
+				<img src="presionreactor1.jpg" height="90" width="90" id="presionreactor">
+</td>
+
+<td>
+
+
+
+				<table border=”1” bordercolor="black" align = "center">
+				
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(6,-1)" width="40" height="40" id="onvaciar" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(6,0)" width="40" height="40" id="offvaciar" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+
+
+</td>
+
+</tr>
+
+
+</table>
+
+
+</td>
+
+
+
+
+<td>
+
+
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" colspan="3">
+
+
+
+			<font color="#3355EE" size="3" font face="arial">
+			
+			Presionador 
+			</font>
+
+
+
+</td>
+
+</tr>
+
+				<tr>
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Pres.
+				</font>
+				</td>
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Temperatura 
+				</font>
+				</td>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Depr. 
+				</font>
+				</td>
+
+				</tr>
+
+<tr>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(7,1)" width="40" height="40" id="onpresionador" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(7,0)" width="40" height="40" id="offpresionador" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+<td>
+				<img src="indicadortemperatura1.jpg" height="90" width="90" id="temperaturareactor">
+</td>
+
+<td>
+
+
+
+				<table border=”1” bordercolor="black" align = "center">
+				
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(8,-1)" width="40" height="40" id="ondepresionador" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(8,0)" width="40" height="40" id="offdepresionador" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+
+
+</td>
+
+</tr>
+
+
+</table>
+
+
+</td>
+
+
+
+<td>
+
+<table>
+
+<tr>
+<td align = "center" bgcolor="#EE8800" colspan="4">
+
+
+
+			<font color="#3355EE" size="3" font face="arial">
+			
+			Generadores de vapor 
+			</font>
+
+
+
+</td>
+
+<tr
+
+<tr>
+<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="3" font face="arial">
+			
+				Pres. alim.
+				</font>
+				</td>
+
+<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="3" font face="arial">
+			
+				Caudal alim.
+				</font>
+				</td>
+
+<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="3" font face="arial">
+			
+				Temp. vapor
+				</font>
+				</td>
+
+<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="3" font face="arial">
+			
+				Pres. vapor
+				</font>
+				</td>
+
+
+
+</tr>
+
+
+<tr>
+<td>
+<img src="presionreactor1.jpg" height="90" width="90" id="presionalimentacion">
+</td>
+
+<td>
+<img src="caudal1.png" height="90" width="90" id="caudalalimentacion">
+</td>
+
+<td>
+<img src="indicadortemperatura1.jpg" height="90" width="90" id="temperaturavapor">
+</td>
+
+<td>
+<img src="presionreactor1.jpg" height="90" width="90" id="presionvapor">
+</td>
+
+</tr>
+
+
+
+
+</table>
+</td>
+
+
+
+<td>
+
+<table>
+
+
+
+
+
+<tr>
+<td align = "center" bgcolor="#EE8800" >
+
+
+
+			<font color="#3355EE" size="3" font face="arial">
+			
+			Potencia turbina 
+			</font>
+
+
+
+</td>
+
+
+
+</tr>
+
+
+<tr>
+<td align = "center">
+<img src="diagramabarras0.png" height="112" width="170" id="potenciabarras">
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+</td>
+
+
+
+<td>
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" width="151">
+
+
+			<font color="#3355EE" size="3" font face="arial">
+			
+			Alarmas 
+			</font>
+
+
+
+</td>
+
+
+</tr>
+
+<tr>
+<td>
+<img src="temperaturareactorverde.png" height="35" width="150" id="alarmatemperaturareactor">
+
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="potenciaverde.png" height="35" width="150" id="alarmapotencia">
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="aguacondensadorverde.png" height="34" width="150" id="alarmacondensador">
+</td>
+</tr>
+
+
+
+</table>
+
+</td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table>
+
+<tr>
+
+
+<td>
+
+
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" colspan="4">
+
+
+
+			<font color="3355EE" size="3" font face="arial">
+			
+			Bombas primario 
+			</font>
+
+
+
+</td>
+
+</tr>
+
+				
+
+<tr>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(9,1)" width="37" height="37" id="onbombaprimario1" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(9,2)" width="37" height="37" id="offbombaprimario1" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(9,3)" width="37" height="37" id="onbombaprimario2" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(9,4)" width="37" height="37" id="offbombaprimario2" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(9,5)" width="37" height="37" id="onbombaprimario3" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(9,6)" width="37" height="37" id="offbombaprimario3" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+
+
+<td>
+
+
+
+				<table border=”1” bordercolor="black" align = "center">
+				
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(9,7)" width="37" height="37" id="onbombaprimario4" class="myButton">
+				
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(9,8)" width="37" height="37" id="offbombaprimario4" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+
+
+</td>
+
+</tr>
+
+
+</table>
+
+
+</td>
+
+
+
+
+
+<td>
+
+
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" colspan="4">
+
+
+
+			<font color="3355EE" size="3" font face="arial">
+			
+			Bombas secundario 
+			</font>
+
+
+
+</td>
+
+</tr>
+
+				
+
+<tr>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(10,1)" width="37" height="37" id="onbombasecundario1" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(10,2)" width="37" height="37" id="offbombasecundario1" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(10,3)" width="37" height="37" id="onbombasecundario2" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(10,4)" width="37" height="37" id="offbombasecundario2" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+
+
+<td>
+
+
+				<table border=”1” bordercolor="black" align = "center">
+
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(10,5)" width="37" height="37" id="onbombasecundario3" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(10,6)" width="37" height="37" id="offbombasecundario3" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+</td>
+
+
+
+<td>
+
+
+
+				<table border=”1” bordercolor="black" align = "center">
+				
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(10,7)" width="37" height="37" id="onbombasecundario4" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(10,8)" width="37" height="37" id="offbombasecundario4" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+
+
+</td>
+
+</tr>
+
+
+</table>
+
+
+</td>
+
+
+
+
+
+
+<td>
+
+
+<table>
+
+<tr>
+
+
+<td align = "center" bgcolor="#EE8800" colspan="3">
+
+
+
+			<font color="3355EE" size="3" font face="arial">
+			
+			Condensador 
+			</font>
+
+
+
+</td>
+
+<tr>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Temp. vapor
+				</font>
+				</td>
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Bomba 
+				</font>
+				</td>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Temp. agua
+				</font>
+				</td>
+
+				</tr>
+
+<tr>
+
+<td align = "center" width="80">
+<img src="indicadortemperatura1.jpg" height="70" width="70" id="temperaturavaporcondensador">
+</td>
+
+
+
+<td>
+
+
+
+				<table border=”1” bordercolor="black" align = "center">
+				
+				<tr>
+				<td>
+				<input type=image src="onblanco.png" onclick="principal(15,1)" width="37" height="27" id="bombacondensadoron" class="myButton">
+
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input type=image src="offrojo.png" onclick="principal(15,0)" width="37" height="27" id="bombacondensadoroff" class="myButton">
+
+				</td>
+				</tr>
+
+
+				</table>
+
+
+
+
+</td>
+
+
+
+
+<td align = "center" width="80">
+<img src="indicadortemperatura1.jpg" height="70" width="70" id="temperaturaaguacondensador">
+</td>
+
+
+</tr>
+
+</table>
+
+
+</td>
+
+
+
+
+
+
+
+
+<td>
+
+
+<table valign="top">
+
+<tr>
+
+
+<td align = "center" bgcolor="#EE8800" colspan="3" width="328">
+
+
+
+			<font color="3355EE" size="3" font face="arial">
+			
+			Potencia 
+			</font>
+
+
+
+</td>
+
+<tr>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+				R.P.M. Turbina
+				</font>
+				</td>
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Voltaje 
+				</font>
+				</td>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Potencia
+				</font>
+				</td>
+
+				</tr>
+
+<tr>
+				<td bgcolor="#e9e9e9" align = "center" id="rpmturbina" height="25">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 RPM
+				</font>
+				</td>
+				
+				<td bgcolor="#e9e9e9" align = "center" id="voltaje">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 V
+				</font>
+				</td>
+
+
+				<td bgcolor="#e9e9e9" align = "center" id="potencia">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 MW
+				</font>
+				</td>
+
+
+</tr>
+
+
+<tr>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+				Energia acumulada
+				</font>
+				</td>
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Frecuencia
+				</font>
+				</td>
+
+
+				<td bgcolor="#3355EE" align = "center">
+				<font color="white" size="2" font face="arial">
+			
+				Factor de carga
+				</font>
+				</td>
+
+				</tr>
+
+<tr>
+				<td bgcolor="#e9e9e9" align = "center" id="energiaacumulada" height="26">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 Kwh
+				</font>
+				</td>
+				
+				<td bgcolor="#e9e9e9" align = "center" id="frecuencia">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 Hz
+				</font>
+				</td>
+
+
+				<td bgcolor="#e9e9e9" align = "center" id="factorcarga">
+				<font color="#3355EE" size="3" font face="Sans">
+			
+				0 %
+				</font>
+				</td>
+
+
+</tr>
+
+
+</table>
+</td>
+
+
+<td>
+
+
+<table>
+
+<tr>
+
+<td align = "center" bgcolor="#EE8800" width="151">
+
+
+			<font color="#3355EE" size="3" font face="arial">
+			
+			Arranque 
+			</font>
+
+
+
+</td>
+
+
+</tr>
+
+<tr>
+<td width="151"  align="center"> 
+<form name="formulario" method="post">
+
+<INPUT type="text" id="contrasena" size="16">
+</form>
+
+</td>
+</tr>
+
+<tr>
+<td>
+<input type=image src="teclacodigo.png" onclick="comprobarcodigo()" width="150" height="30" id="teclacodigo" class="myButton">
+
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="introducirclave.png" height="20" width="150" id="clave">
+</td>
+</tr>
+
+
+
+</table>
+
+</td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+</table>
+
+
+</td>
+
+
+
+
+</tr>
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
